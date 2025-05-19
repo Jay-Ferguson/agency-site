@@ -11,7 +11,7 @@ export default defineCliConfig({
   },
   studioHost:
     host && host !== "main"
-      ? `${host}-turbo-start-sanity`
-      : "turbo-start-sanity",
+      ? `${host}-turbo-personal-site-sanity`
+      : "personal-site-sanity",
   autoUpdates: false,
 });

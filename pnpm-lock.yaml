@@ -129,6 +129,9 @@ importers:
       babel-plugin-react-compiler:
         specifier: 19.0.0-beta-e993439-20250328
         version: 19.0.0-beta-e993439-20250328
+      gsap:
+        specifier: ^3.13.0
+        version: 3.13.0
       lucide-react:
         specifier: 0.487.0
         version: 0.487.0(react@19.1.0)
@@ -4851,6 +4854,9 @@ packages:
   groq@3.88.2:
     resolution: {integrity: sha512-dyc3eD5LUR13EDvzJTBiKgwZzAwW7pWpe+xx3BUCgJSm34m6RamLwEJNKS/E9vXZLaxVnXI1Ax1Bqktqa7c8eQ==}
     engines: {node: '>=18'}
+
+  gsap@3.13.0:
+    resolution: {integrity: sha512-QL7MJ2WMjm1PHWsoFrAQH/J8wUeqZvMtHO58qdekHpCfhvhSL4gSiz6vJf5EeMP0LOn3ZCprL2ki/gjED8ghVw==}
 
   gunzip-maybe@1.4.2:
     resolution: {integrity: sha512-4haO1M4mLO91PW57BMsDFf75UmwoRX0GkdD+Faw+Lr+r/OZrOCS0pIBwOL1xCKQqnQzbNFGgK2V2CpBUPeFNTw==}
@@ -13415,6 +13421,8 @@ snapshots:
   groq@3.87.0: {}
 
   groq@3.88.2: {}
+
+  gsap@3.13.0: {}
 
   gunzip-maybe@1.4.2:
     dependencies:
