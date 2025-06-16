@@ -1,11 +1,11 @@
 import { notFound } from "next/navigation";
+import type { JSX } from "react";
 
 import { PageBuilder } from "@/components/pagebuilder";
 import { client } from "@/lib/sanity/client";
 import { sanityFetch } from "@/lib/sanity/live";
 import { querySlugPageData, querySlugPagePaths } from "@/lib/sanity/query";
 import { getMetaData } from "@/lib/seo";
-
 async function fetchSlugPageData(slug: string) {
   return await sanityFetch({
     query: querySlugPageData,
@@ -46,13 +46,13 @@ export default async function SlugPage({
   params,
 }: {
   params: Promise<{ slug: string[] }>;
-}) {
+}): Promise<JSX.Element> {
   const { slug } = await params;
   const slugString = slug.join("/");
   const { data: pageData } = await fetchSlugPageData(slugString);
 
   if (!pageData) {
-    return notFound();
+    notFound();
   }
 
   const { title, pageBuilder, _id, _type } = pageData ?? {};
