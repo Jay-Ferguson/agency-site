@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import type { PortableTextBlock } from "next-sanity";
+import type { ReactElement } from "react";
 
 import { RichText } from "@/components/richtext";
 import { SanityImage } from "@/components/sanity-image";
@@ -45,7 +46,7 @@ export default async function BlogSlugPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
-}) {
+}): Promise<ReactElement> {
   const { slug } = await params;
   const { data } = await fetchBlogSlugPageData(slug);
   if (!data) return notFound();
