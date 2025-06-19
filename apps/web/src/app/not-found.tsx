@@ -1,6 +1,7 @@
 import Link from "next/link";
+import type { JSX } from "react";
 
-export default function NotFound() {
+export default function NotFound(): JSX.Element {
   return (
     <div className="flex min-h-[calc(100vh-400px)] flex-col items-center justify-center gap-4 p-4">
       <h1 className="text-6xl font-bold text-foreground animate-bounce">404</h1>

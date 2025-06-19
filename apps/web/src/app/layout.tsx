@@ -3,6 +3,7 @@ import "@workspace/ui/globals.css";
 import { Geist, Geist_Mono } from "next/font/google";
 import { draftMode } from "next/headers";
 import { VisualEditing } from "next-sanity";
+import type { JSX } from "react";
 import { Suspense } from "react";
 import { preconnect, prefetchDNS } from "react-dom";
 
@@ -31,7 +32,7 @@ export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>): Promise<JSX.Element> {
   preconnect("https://cdn.sanity.io");
   prefetchDNS("https://cdn.sanity.io");
   return (

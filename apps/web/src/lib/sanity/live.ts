@@ -7,7 +7,7 @@ import { token } from "./token";
  * Use defineLive to enable automatic revalidation and refreshing of your fetched content
  * Learn more: https://github.com/sanity-io/next-sanity?tab=readme-ov-file#1-configure-definelive
  */
-
+// @ts-expects-error
 export const { sanityFetch, SanityLive } = defineLive({
   client,
   // Required for showing draft content when the Sanity Presentation Tool is used, or to enable the Vercel Toolbar Edit Mode

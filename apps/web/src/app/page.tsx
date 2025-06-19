@@ -2,6 +2,7 @@ import { PageBuilder } from "@/components/pagebuilder";
 import { sanityFetch } from "@/lib/sanity/live";
 import { queryHomePageData } from "@/lib/sanity/query";
 import { getMetaData } from "@/lib/seo";
+import type { JSX } from "react";
 
 async function fetchHomePageData() {
   return await sanityFetch({
@@ -14,7 +15,7 @@ export async function generateMetadata() {
   return await getMetaData(homePageData?.data ?? {});
 }
 
-export default async function Page() {
+export default async function Page(): Promise<JSX.Element> {
   const { data: homePageData } = await fetchHomePageData();
 
   if (!homePageData) {

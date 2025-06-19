@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import type { JSX } from "react";
 
 import { BlogCard, BlogHeader, FeaturedBlogCard } from "@/components/blog-card";
 import { PageBuilder } from "@/components/pagebuilder";
@@ -8,7 +9,7 @@ import type { QueryBlogIndexPageDataResult } from "@/lib/sanity/sanity.types";
 import { getMetaData } from "@/lib/seo";
 import { handleErrors } from "@/utils";
 
-type Blog = NonNullable<QueryBlogIndexPageDataResult["blogs"]>[number];
+type Blog = NonNullable<QueryBlogIndexPageDataResult>["blogs"][number];
 
 async function fetchBlogPosts() {
   return await handleErrors(sanityFetch({ query: queryBlogIndexPageData }));
@@ -19,7 +20,7 @@ export async function generateMetadata() {
   return await getMetaData(result?.data ?? {});
 }
 
-export default async function BlogIndexPage() {
+export default async function BlogIndexPage(): Promise<JSX.Element> {
   const [res, err] = await fetchBlogPosts();
   if (err || !res?.data) notFound();
 
