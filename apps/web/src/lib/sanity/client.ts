@@ -16,6 +16,11 @@ export const client = createClient({
   },
 });
 
+export const clientPost = createClient({
+  // …other code
+  token: process.env.SANITY_API_WRITE_TOKEN,
+});
+
 const imageBuilder = createImageUrlBuilder({
   projectId: projectId,
   dataset: dataset,
