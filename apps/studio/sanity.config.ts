@@ -1,4 +1,5 @@
 import { assist } from "@sanity/assist";
+import { codeInput } from "@sanity/code-input";
 import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
 import { presentationTool } from "sanity/presentation";
@@ -7,7 +8,6 @@ import {
   unsplashAssetSource,
   unsplashImageAsset,
 } from "sanity-plugin-asset-source-unsplash";
-import { iconPicker } from "sanity-plugin-icon-picker";
 import { media, mediaAssetSource } from "sanity-plugin-media";
 
 import { Logo } from "./components/logo";
@@ -44,12 +44,13 @@ export default defineConfig({
       },
     }),
     assist(),
+
     structureTool({
       structure,
     }),
     visionTool(),
-    iconPicker(),
     media(),
+    codeInput(),
     presentationUrl(),
     unsplashImageAsset(),
   ],

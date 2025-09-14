@@ -543,7 +543,7 @@ export function generateGlobalSettingsData(logoImageId?: string) {
   return {
     _id: "settings",
     _type: "settings",
-    contactEmail: "hello@roboto.studio",
+    contactEmail: "jayfergusonwebz@gmail.com",
     label: "Settings",
     logo: logoImageId
       ? {
@@ -556,9 +556,8 @@ export function generateGlobalSettingsData(logoImageId?: string) {
       : undefined,
     siteDescription:
       "Powered by Next.js and Sanity, crafted in a seamless monorepo architecture.",
-    siteTitle: "Template Robot Next Sanity",
+    siteTitle: "studio blog built with Next & Sanity",
     socialLinks: {
-      linkedin: "https://uk.linkedin.com/company/robotostudio",
       twitter: "https://x.com/studioroboto",
       youtube: "https://www.youtube.com/@robotostudio",
     },

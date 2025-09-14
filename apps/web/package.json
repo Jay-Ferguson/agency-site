@@ -12,25 +12,35 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
+    "@hatchd/sanity-plugin-form-builder": "^1.1.0",
     "@portabletext/react": "^3.2.1",
     "@sanity/asset-utils": "^2.2.1",
-    "@sanity/client": "^7.1.0",
+    "@sanity/client": "^7.8.1",
     "@sanity/image-url": "^1.1.0",
     "@sanity/visual-editing": "^2.15.0",
     "@workspace/ui": "workspace:*",
     "babel-plugin-react-compiler": "19.0.0-beta-e993439-20250328",
-    "framer-motion": "^12.15.0",
     "gsap": "^3.13.0",
     "lucide-react": "0.487.0",
+    "motion": "^12.23.12",
     "next": "15.2.4",
-    "next-sanity": "^9.12.0",
+    "next-sanity": "^10.0.0",
     "next-themes": "^0.4.6",
     "nodemailer": "^7.0.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-google-recaptcha": "^3.1.0",
+    "react-player": "^3.3.1",
+    "react-refractor": "^4.0.0",
+    "refractor": "^5.0.0",
     "server-only": "^0.0.1",
     "slugify": "^1.6.6"
+  },
+  "overrides": {
+    "refractor": {
+      "hast-to-hyperscript": "10.0.1",
+      "lowlight": "2.9.0"
+    }
   },
   "devDependencies": {
     "@types/node": "^22",
@@ -38,6 +48,7 @@
     "@types/react": "19.1.3",
     "@types/react-dom": "19.1.1",
     "@types/react-google-recaptcha": "^2.1.9",
+    "@types/refractor": "^4.0.0",
     "@workspace/eslint-config": "workspace:^",
     "@workspace/typescript-config": "workspace:*",
     "eslint-plugin-simple-import-sort": "^12.1.1",

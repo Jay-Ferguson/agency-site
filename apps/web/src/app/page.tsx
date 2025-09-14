@@ -1,8 +1,17 @@
+import type { JSX } from "react";
+
+import { ContactFormWrapper } from "@/components/ContactFormWrapper";
 import { PageBuilder } from "@/components/pagebuilder";
 import { sanityFetch } from "@/lib/sanity/live";
 import { queryHomePageData } from "@/lib/sanity/query";
 import { getMetaData } from "@/lib/seo";
-import type { JSX } from "react";
+import { client } from "@/sanity/lib/client";
+import { sanityFetch } from "@/sanity/lib/live";
+import {
+  CONTACT_FORM_QUERY,
+  CONTACT_FORM_SETTINGS_QUERY,
+  PAGE_QUERY,
+} from "@/sanity/lib/queries";
 
 async function fetchHomePageData() {
   return await sanityFetch({

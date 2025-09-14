@@ -124,12 +124,28 @@ export const structure = (
       createList({ S, type: "author", title: "Authors", icon: User }),
       S.divider(),
       S.listItem()
+        .title("Form General Settings")
+        .child(
+          S.editor()
+            .schemaType("formGeneralSettings")
+            .documentId("form-general-settings"),
+        ),
+      ...S.documentTypeListItems().filter(
+        (item) =>
+          item.getId() && !["formGeneralSettings"].includes(item.getId()!),
+      ),
+      S.listItem()
         .title("Site Configuration")
         .icon(Settings2)
         .child(
           S.list()
             .title("Site Configuration")
             .items([
+              ...S.documentTypeListItems().filter(
+                (item) =>
+                  item.getId() &&
+                  !["formGeneralSettings"].includes(item.getId()!),
+              ),
               createSingleTon({
                 S,
                 type: "navbar",

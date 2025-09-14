@@ -399,3 +399,11 @@ export const CONTACT_FORM_SETTINGS_QUERY = `*[_type == "formGeneralSettings"][0]
   smtpUsername,
   smtpPassword
 }`;
+
+export const REDIRECTS_QUERY = defineQuery(`
+  *[_type == "redirect" && isEnabled == true] {
+      source,
+      destination,
+      permanent
+  }
+`);
