@@ -8,6 +8,7 @@ import {
   unsplashAssetSource,
   unsplashImageAsset,
 } from "sanity-plugin-asset-source-unsplash";
+import { lucideIconPicker } from "sanity-plugin-lucide-icon-picker";
 import { media, mediaAssetSource } from "sanity-plugin-media";
 
 import { Logo } from "./components/logo";
@@ -44,13 +45,14 @@ export default defineConfig({
       },
     }),
     assist(),
-
+    lucideIconPicker(),
     structureTool({
       structure,
     }),
     visionTool(),
     media(),
     codeInput(),
+    lucideIconPicker(),
     presentationUrl(),
     unsplashImageAsset(),
   ],

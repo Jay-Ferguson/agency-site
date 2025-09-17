@@ -8,6 +8,14 @@
     "lint": "turbo lint",
     "check-types": "turbo check-types",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  }, 
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowAny": [
+        "sanity",
+        "react"
+      ]
+    }
   },
   "devDependencies": {
     "@workspace/eslint-config": "workspace:*",

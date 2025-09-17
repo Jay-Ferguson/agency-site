@@ -1,12 +1,12 @@
-import { GROUP, GROUPS } from "../../utils/constant";
-import { createSlug, isUnique } from "../../utils/slug";
+import { DocumentIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
-import { DocumentIcon } from "@sanity/icons";
 import { PathnameFieldComponent } from "../../components/slug-field-component";
+import { GROUP, GROUPS } from "../../utils/constant";
 import { ogFields } from "../../utils/og-fields";
-import { pageBuilderField } from "../common";
 import { seoFields } from "../../utils/seo-fields";
+import { createSlug, isUnique } from "../../utils/slug";
+import { pageBuilderField } from "../common";
 
 export const page = defineType({
   name: "page",
@@ -25,6 +25,11 @@ export const page = defineType({
         "The main heading that appears at the top of your page and in browser tabs",
       group: GROUP.MAIN_CONTENT,
       validation: (Rule) => Rule.required().error("A page title is required"),
+    }),
+    defineField({
+      name: "icon",
+      title: "Icon",
+      type: "lucide-icon",
     }),
     defineField({
       name: "description",
@@ -83,7 +88,7 @@ export const page = defineType({
       to: [{ type: "contactForm" }],
       description: "Select a contact form to display.",
     }),
-    
+
     pageBuilderField,
     ...seoFields.filter((field) => field.name !== "seoHideFromLists"),
     ...ogFields,

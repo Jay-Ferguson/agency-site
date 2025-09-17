@@ -1,7 +1,6 @@
 import { LayoutGrid } from "lucide-react";
 import { defineField } from "sanity";
 import { defineType } from "sanity";
-import { preview } from "sanity-plugin-icon-picker";
 
 import { iconField } from "../common";
 import { customRichText } from "../definitions/rich-text";
@@ -25,7 +24,7 @@ const featureCardIcon = defineField({
     prepare: ({ title, icon }) => {
       return {
         title: `${title ?? "Untitled"}`,
-        media: icon ? preview(icon) : null,
+        media: icon || null,
       };
     },
   },
