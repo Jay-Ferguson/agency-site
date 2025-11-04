@@ -45,7 +45,6 @@ export default defineConfig({
       },
     }),
     assist(),
-    lucideIconPicker(),
     structureTool({
       structure,
     }),

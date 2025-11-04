@@ -1,9 +1,9 @@
 import { defineField, defineType } from "sanity";
 
-export const form = defineType({
-  name: "form",
-  title: "Form",
-  type: "object",
+export const contactForm = defineType({
+  name: "contactForm",
+  title: "Contact Form",
+  type: "document",
   fields: [
     defineField({
       name: "title",
@@ -41,7 +41,7 @@ export const form = defineType({
     prepare({ title }) {
       return {
         title,
-        subtitle: "Form Block",
+        subtitle: "Contact Form Block",
       };
     },
   },
