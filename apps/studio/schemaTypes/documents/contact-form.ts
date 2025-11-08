@@ -1,14 +1,17 @@
+import { AlignLeftIcon } from "lucide-react";
 import { defineField, defineType } from "sanity";
 
 export const contactForm = defineType({
   name: "contactForm",
   title: "Contact Form",
+  icon: AlignLeftIcon,
   type: "document",
   fields: [
     defineField({
       name: "title",
       type: "string",
       title: "Title",
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "description",
