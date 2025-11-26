@@ -10,6 +10,7 @@ import {
 } from "sanity-plugin-asset-source-unsplash";
 import { lucideIconPicker } from "sanity-plugin-lucide-icon-picker";
 import { media, mediaAssetSource } from "sanity-plugin-media";
+import { umamiTool } from "sanity-plugin-umami-analytics-tool";
 
 import { Logo } from "./components/logo";
 import { locations } from "./location";
@@ -33,6 +34,9 @@ export default defineConfig({
     enabled: true,
   },
   plugins: [
+    umamiTool({
+      url: process.env.NEXT_PUBLIC_UMAMI_URL as string,
+    }),
     presentationTool({
       resolve: {
         locations,
