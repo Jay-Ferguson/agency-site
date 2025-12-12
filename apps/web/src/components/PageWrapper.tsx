@@ -1,6 +1,7 @@
 import { cubicBezier, motion } from "motion/react";
-import { usePathname } from "next/navigation";
+
 import type { ReactNode } from "react";
+import { usePathname } from "next/navigation";
 
 const transition = {
   duration: 0.3,

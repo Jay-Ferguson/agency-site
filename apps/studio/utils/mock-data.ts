@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 import { PromisePool } from "@supercharge/promise-pool";
-import type { SanityClient } from "sanity";
+import type { SanityClient } from "@sanity/client";
 import slugify from "slugify";
 
 import {

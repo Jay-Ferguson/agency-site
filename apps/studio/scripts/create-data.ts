@@ -1,7 +1,8 @@
 import fs from "node:fs/promises";
 
 import { faker } from "@faker-js/faker";
-import { getCliClient } from "sanity/cli";
+import { getCliClient } from "@sanity/cli";
+import type { SanityClient } from "@sanity/client";
 
 import {
   generateFooterColumns,
@@ -22,7 +23,7 @@ import {
   getMockHomePageData,
 } from "../utils/mock-data";
 
-const client = getCliClient();
+const client = getCliClient() as any;
 
 async function removePostinstallScript() {
   try {

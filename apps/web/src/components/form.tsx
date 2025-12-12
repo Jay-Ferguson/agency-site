@@ -1,8 +1,9 @@
 "use client";
 
+import type { JSX } from "react";
 import { useState } from "react";
 
-export function Form() {
+export function Form(): JSX.Element {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");

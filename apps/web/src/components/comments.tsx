@@ -1,6 +1,5 @@
 "use client";
 
-import { ApiError } from "next-sanity";
 import React from "react";
 import { useEffect } from "react";
 
@@ -13,15 +12,10 @@ export default function Comments() {
         const comments = await client.fetch('*[_type == "comments"]');
         console.log(comments);
       } catch (error: unknown) {
-        if (
-          typeof error === "object" &&
-          error !== null &&
-          "name" in error &&
-          (error as { name?: string }).name === "ApiError"
-        ) {
-          console.error("API Error:", (error as { message?: string }).message);
+        if (error instanceof Error) {
+          console.error("Error fetching comments:", error.message);
         } else {
-          console.error("Unexpected Error:", error);
+          console.error("An unknown error occurred:", error);
         }
       }
     };

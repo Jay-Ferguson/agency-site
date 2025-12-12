@@ -1,10 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  reactCompiler: true,
   /* config options here */
   transpilePackages: ["@workspace/ui"],
+  turbopack: {
+    root: "/Users/Jay/Desktop/personal-site/agency_site/agency-site",
+  },
   experimental: {
-    reactCompiler: true,
     // ppr: true,
     inlineCss: true,
   },
