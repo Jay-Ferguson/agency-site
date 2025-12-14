@@ -1,4 +1,9 @@
 {
+  "compilerOptions": {
+    "preserveSymlinks": false,
+    "forceConsistentCasingInFileNames": true
+    // ... other options
+  },
   "extends": "@workspace/typescript-config/base.json"
 }
 
