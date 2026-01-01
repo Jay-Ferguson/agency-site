@@ -1,13 +1,13 @@
-import { BlogCard, BlogHeader, FeaturedBlogCard } from "@/components/blog-card";
-
+import { notFound } from "next/navigation";
 import type { JSX } from "react";
+
+import { BlogCard, BlogHeader, FeaturedBlogCard } from "@/components/blog-card";
 import { PageBuilder } from "@/components/pagebuilder";
+import { sanityFetch } from "@/lib/sanity/live";
+import { queryBlogIndexPageData } from "@/lib/sanity/query";
 import type { QueryBlogIndexPageDataResult } from "@/lib/sanity/sanity.types";
 import { getMetaData } from "@/lib/seo";
 import { handleErrors } from "@/utils";
-import { notFound } from "next/navigation";
-import { queryBlogIndexPageData } from "@/lib/sanity/query";
-import { sanityFetch } from "@/lib/sanity/live";
 
 type Blog = NonNullable<QueryBlogIndexPageDataResult>["blogs"][number];
 

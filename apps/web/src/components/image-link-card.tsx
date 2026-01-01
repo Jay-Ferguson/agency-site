@@ -1,8 +1,10 @@
-import Link from "next/link";
-import type { PagebuilderType } from "@/types";
-import type { ReactElement } from "react";
-import { SanityImage } from "./sanity-image";
 import { cn } from "@workspace/ui/lib/utils";
+import Link from "next/link";
+import type { ReactElement } from "react";
+
+import type { PagebuilderType } from "@/types";
+
+import { SanityImage } from "./sanity-image";
 
 export type CTACardProps = {
   card: NonNullable<PagebuilderType<"imageLinkCards">["cards"]>[number];
@@ -24,7 +26,7 @@ export function CTACard({ card, className }: CTACardProps): ReactElement {
           <SanityImage
             asset={image}
             loading="eager"
-            priority
+            preload
             quality={100}
             fill
             className="object-cover grayscale pointer-events-none group-hover:opacity-100 group-hover:transition-opacity duration-1000 opacity-40 dark:opacity-60 dark:hover:opacity-[2] dark:saturate-200"

@@ -13,7 +13,7 @@ export default function NotFound(): JSX.Element {
         aria-label="Return Home"
         className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-all duration-200 ease-in-out animate-fade-in-up"
       >
-        Return Home
+        Go back home
       </Link>
     </div>
   );
