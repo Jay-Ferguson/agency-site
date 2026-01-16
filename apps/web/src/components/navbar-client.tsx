@@ -16,12 +16,12 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@workspace/ui/components/navigation-menu";
+import { Sheet, SheetTrigger } from "@workspace/ui/components/sheet";
 import {
   SheetContent,
   SheetHeader,
   SheetTitle,
 } from "@workspace/ui/components/sheet";
-import { Sheet, SheetTrigger } from "@workspace/ui/components/sheet";
 import { cn } from "@workspace/ui/lib/utils";
 import { Menu } from "lucide-react";
 import dynamic from "next/dynamic";
@@ -36,6 +36,7 @@ import { Logo } from "./logo";
 import { ModeToggle } from "./mode-toggle";
 import { SanityButtons } from "./sanity-buttons";
 import { SanityIcon } from "./sanity-icon";
+
 interface MenuItem {
   title: string;
   description: string;
@@ -106,7 +107,15 @@ function MobileNavbarAccordionColumn({
 }
 
 function MobileNavbar({ navbarData }: { navbarData: QueryNavbarDataResult }) {
-  const { logo, siteTitle, columns, buttons } = navbarData ?? {};
+  const { columns, buttons } = navbarData ?? {};
+  const logo =
+    "logo" in (navbarData ?? {})
+      ? (navbarData as { logo?: string }).logo
+      : undefined;
+  const siteTitle =
+    "siteTitle" in (navbarData ?? {})
+      ? (navbarData as { siteTitle?: string }).siteTitle
+      : "";
   const [isOpen, setIsOpen] = useState(false);
 
   const path = usePathname();

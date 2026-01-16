@@ -86,7 +86,7 @@ export async function getMetaData(data: MetaDataInput = {}): Promise<Metadata> {
     },
     openGraph: {
       type: "website",
-      countryName: "UK",
+      countryName: "Canada",
       description: meta.description,
       title: meta.title,
       images: [
