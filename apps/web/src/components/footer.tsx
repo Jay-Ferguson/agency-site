@@ -43,7 +43,8 @@ export async function FooterServer() {
 function SocialLinks({ data }: SocialLinksProps) {
   if (!data) return null;
 
-  const { facebook, twitter, instagram, youtube, linkedin, mastodon } = data;
+  const { facebook, twitter, instagram, youtube, linkedin } = data;
+  const mastodon = (data as any).mastodon; // Optional mastodon property not in types yet
 
   const socialLinks = [
     {

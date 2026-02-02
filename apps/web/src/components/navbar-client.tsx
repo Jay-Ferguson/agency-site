@@ -108,14 +108,8 @@ function MobileNavbarAccordionColumn({
 
 function MobileNavbar({ navbarData }: { navbarData: QueryNavbarDataResult }) {
   const { columns, buttons } = navbarData ?? {};
-  const logo =
-    "logo" in (navbarData ?? {})
-      ? (navbarData as { logo?: string }).logo
-      : undefined;
-  const siteTitle =
-    "siteTitle" in (navbarData ?? {})
-      ? (navbarData as { siteTitle?: string }).siteTitle
-      : "";
+  const logo = (navbarData as any)?.logo; // Logo property may not be in types
+  const siteTitle = navbarData?.siteTitle ?? "";
   const [isOpen, setIsOpen] = useState(false);
 
   const path = usePathname();

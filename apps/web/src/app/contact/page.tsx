@@ -1,23 +1,24 @@
-import { sanityFetch } from "@/sanity/lib/live";
+import { sanityFetch } from "@/lib/sanity/live";
 import {
-  PAGE_QUERY,
+  querySlugPageData,
   CONTACT_FORM_QUERY,
   CONTACT_FORM_SETTINGS_QUERY,
-} from "@/sanity/lib/queries";
-import { client } from "@/sanity/lib/client";
-import { ContactFormWrapper } from "@/components/ContactFormWrapper";
+} from "@/lib/sanity/query";
+import { client } from "@/lib/sanity/client";
+import { ContactFormWrapper } from "@/components/sections/ContactFormWrapper";
 
 type RouteProps = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
-const getPage = async (params: RouteProps["params"]) =>
+const getPage = async (params: { slug: string }) =>
   sanityFetch({
-    query: PAGE_QUERY,
+    query: querySlugPageData,
     params,
   });
 
-export default async function Page({ params }: RouteProps) {
+export default async function Page(props: RouteProps) {
+  const params = await props.params;
   const { data: page } = await getPage(params);
   const formId = page?.contactForm?._ref;
   const formData = formId ? await getContactForm(formId) : null;
@@ -28,7 +29,7 @@ export default async function Page({ params }: RouteProps) {
 
   return (
     <>
-      <ContactFormWrapper formData={formData} />
+      <ContactFormWrapper />
     </>
   );
 }

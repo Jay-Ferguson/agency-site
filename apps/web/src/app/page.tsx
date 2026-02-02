@@ -5,13 +5,6 @@ import { sanityFetch } from "@/lib/sanity/live";
 import { queryHomePageData } from "@/lib/sanity/query";
 import { getMetaData } from "@/lib/seo";
 
-import { ContactFormWrapper } from "../components/sections/ContactFormWrapper";
-import { client } from "../lib/sanity/client";
-import {
-  CONTACT_FORM_QUERY,
-  CONTACT_FORM_SETTINGS_QUERY,
-  PAGE_QUERY,
-} from "../lib/sanity/query";
 
 async function fetchHomePageData() {
   return await sanityFetch({

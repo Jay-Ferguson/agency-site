@@ -7,14 +7,16 @@ import { sanityFetch } from "@/lib/sanity/live";
 import { queryBlogIndexPageData } from "@/lib/sanity/query";
 import type { QueryBlogIndexPageDataResult } from "@/lib/sanity/sanity.types";
 import { getMetaData } from "@/lib/seo";
-import { handleErrors } from "@/utils";
 
 type Blog = NonNullable<QueryBlogIndexPageDataResult>["blogs"][number];
 
-async function fetchBlogPosts(): Promise<
-  [QueryBlogIndexPageDataResult | undefined, unknown]
-> {
-  return await handleErrors(sanityFetch({ query: queryBlogIndexPageData }));
+async function fetchBlogPosts() {
+  try {
+    const result = await sanityFetch({ query: queryBlogIndexPageData });
+    return [result.data, null] as const;
+  } catch (error) {
+    return [undefined, error] as const;
+  }
 }
 
 export async function generateMetadata() {
