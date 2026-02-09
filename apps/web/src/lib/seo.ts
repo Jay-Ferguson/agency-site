@@ -54,7 +54,7 @@ export async function getMetaData(data: MetaDataInput = {}): Promise<Metadata> {
   });
 
   // Use siteTitle from settings for branding, with a fallback only if settings are not available
-  const brandName = siteTitle || "Roboto Studio Demo";
+  const brandName = siteTitle || "agency site";
 
   return {
     title: `${meta.title} | ${brandName}`,
@@ -65,15 +65,7 @@ export async function getMetaData(data: MetaDataInput = {}): Promise<Metadata> {
     icons: {
       icon: `${baseUrl}/favicon.ico`,
     },
-    keywords: [
-      "roboto",
-      "studio",
-      "demo",
-      "sanity",
-      "next",
-      "react",
-      "template",
-    ],
+    keywords: ["studio", "sanity", "next", "react", "template", "agency"],
     twitter: {
       card: "summary_large_image",
       images: [ogImage],
