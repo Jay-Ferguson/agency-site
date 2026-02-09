@@ -17,7 +17,11 @@ export const client = createClient({
 });
 
 export const clientPost = createClient({
-  // …other code
+  projectId,
+  dataset,
+  apiVersion,
+  useCdn: false,
+  perspective: "published",
   token: process.env.SANITY_API_WRITE_TOKEN,
 });
 

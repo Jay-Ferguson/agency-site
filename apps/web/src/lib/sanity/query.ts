@@ -294,7 +294,7 @@ export const queryFooterData = defineQuery(`
 export const queryNavbarData = defineQuery(`
   *[_type == "navbar" && _id == "navbar"][0]{
     _id,
-    siteTitle: coalesce(siteTitle, *[_type == "settings"][0].siteTitle),
+    "siteTitle": coalesce(siteTitle, *[_type == "settings"][0].siteTitle),
     columns[]{
       _key,
       _type == "navbarColumn" => {

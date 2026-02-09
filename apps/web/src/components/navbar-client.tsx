@@ -192,7 +192,8 @@ function NavbarColumnLink({
     <Link
       aria-label={`Link to ${column.name ?? column.href}`}
       href={column.href ?? ""}
-      legacyBehavior
+      target={column.openInNewTab ? "_blank" : "_self"}
+      rel={column.openInNewTab ? "noopener noreferrer" : undefined}
       passHref
     >
       <NavigationMenuLink
