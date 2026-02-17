@@ -1,10 +1,8 @@
-import { LayoutPanelLeft, Link, PanelBottom } from "lucide-react";
 import { defineField, defineType } from "sanity";
 
 const footerColumnLink = defineField({
   name: "footerColumnLink",
   type: "object",
-  icon: Link,
   fields: [
     defineField({
       name: "name",
@@ -34,7 +32,6 @@ const footerColumnLink = defineField({
       return {
         title: title || "Untitled Link",
         subtitle: `${urlType === "external" ? "External" : "Internal"} • ${truncatedUrl}${newTabIndicator}`,
-        media: Link,
       };
     },
   },
@@ -43,7 +40,6 @@ const footerColumnLink = defineField({
 const footerColumn = defineField({
   name: "footerColumn",
   type: "object",
-  icon: LayoutPanelLeft,
   fields: [
     defineField({
       name: "title",

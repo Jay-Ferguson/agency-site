@@ -1,17 +1,4 @@
 import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
-import {
-  BookMarked,
-  CogIcon,
-  File,
-  FileText,
-  HomeIcon,
-  type LucideIcon,
-  MessageCircleQuestion,
-  PanelBottomIcon,
-  PanelTopDashedIcon,
-  Settings2,
-  User,
-} from "lucide-react";
 import type {
   StructureBuilder,
   StructureResolverContext,
@@ -25,18 +12,16 @@ type Base<T = SchemaType> = {
   type: T;
   preview?: boolean;
   title?: string;
-  icon?: LucideIcon;
 };
 
 type CreateSingleTon = {
   S: StructureBuilder;
 } & Base<SingletonType>;
 
-const createSingleTon = ({ S, type, title, icon }: CreateSingleTon) => {
+const createSingleTon = ({ S, type, title }: CreateSingleTon) => {
   const newTitle = title ?? getTitleCase(type);
   return S.listItem()
     .title(newTitle)
-    .icon(icon ?? File)
     .child(S.document().schemaType(type).documentId(type));
 };
 
@@ -45,16 +30,14 @@ type CreateList = {
 } & Base;
 
 // This function creates a list item for a type. It takes a StructureBuilder instance (S),
-// a type, an icon, and a title as parameters. It generates a title for the type if not provided,
-// and uses a default icon if not provided. It then returns a list item with the generated or
-// provided title and icon.
+// a type, and a title as parameters. It generates a title for the type if not provided.
+// It then returns a list item with the generated or provided title.
 
-const createList = ({ S, type, icon, title, id }: CreateList) => {
+const createList = ({ S, type, title, id }: CreateList) => {
   const newTitle = title ?? getTitleCase(type);
   return S.documentTypeListItem(type)
     .id(id ?? type)
-    .title(newTitle)
-    .icon(icon ?? File);
+    .title(newTitle);
 };
 
 type CreateIndexList = {
@@ -74,14 +57,12 @@ const createIndexListWithOrderableItems = ({
   const listTitle = list.title ?? getTitleCase(list.type);
   return S.listItem()
     .title(listTitle)
-    .icon(index.icon ?? File)
     .child(
       S.list()
         .title(indexTitle)
         .items([
           S.listItem()
             .title(indexTitle)
-            .icon(index.icon ?? File)
             .child(
               S.document()
                 .views([S.view.form()])
@@ -92,7 +73,6 @@ const createIndexListWithOrderableItems = ({
             type: list.type,
             S,
             context,
-            icon: list.icon ?? File,
             title: `${listTitle}`,
           }),
         ]),
@@ -106,22 +86,21 @@ export const structure = (
   return S.list()
     .title("Content")
     .items([
-      createSingleTon({ S, type: "homePage", icon: HomeIcon }),
+      createSingleTon({ S, type: "homePage" }),
       S.divider(),
       createList({ S, type: "page", title: "Pages" }),
       createIndexListWithOrderableItems({
         S,
-        index: { type: "blogIndex", icon: BookMarked },
-        list: { type: "blog", title: "Blogs", icon: FileText },
+        index: { type: "blogIndex" },
+        list: { type: "blog", title: "Blogs" },
         context,
       }),
       createList({
         S,
         type: "faq",
         title: "FAQs",
-        icon: MessageCircleQuestion,
       }),
-      createList({ S, type: "author", title: "Authors", icon: User }),
+      createList({ S, type: "author", title: "Authors" }),
       S.divider(),
       S.listItem()
         .title("Form General Settings")
@@ -136,7 +115,6 @@ export const structure = (
       ),
       S.listItem()
         .title("Site Configuration")
-        .icon(Settings2)
         .child(
           S.list()
             .title("Site Configuration")
@@ -150,19 +128,16 @@ export const structure = (
                 S,
                 type: "navbar",
                 title: "Navigation",
-                icon: PanelTopDashedIcon,
               }),
               createSingleTon({
                 S,
                 type: "footer",
                 title: "Footer",
-                icon: PanelBottomIcon,
               }),
               createSingleTon({
                 S,
                 type: "settings",
                 title: "Global Settings",
-                icon: CogIcon,
               }),
             ]),
         ),

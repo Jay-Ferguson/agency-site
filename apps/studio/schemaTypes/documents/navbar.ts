@@ -1,12 +1,10 @@
-import { LayoutPanelLeft, Link, PanelTop } from "lucide-react";
 import { defineField, defineType } from "sanity";
 
-import { buttonsField, iconField } from "../common";
+import { buttonsField } from "../common";
 
 const navbarLink = defineField({
   name: "navbarLink",
   type: "object",
-  icon: Link,
   title: "Navigation Link",
   description: "Individual navigation link with name and URL",
   fields: [
@@ -40,7 +38,6 @@ const navbarLink = defineField({
       return {
         title: title || "Untitled Link",
         subtitle: `${urlType === "external" ? "External" : "Internal"} • ${truncatedUrl}${newTabIndicator}`,
-        media: Link,
       };
     },
   },
@@ -49,7 +46,6 @@ const navbarLink = defineField({
 const navbarColumnLink = defineField({
   name: "navbarColumnLink",
   type: "object",
-  icon: LayoutPanelLeft,
   title: "Navigation Column Link",
   description: "A link within a navigation column",
   fields: [

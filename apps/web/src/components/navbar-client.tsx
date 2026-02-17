@@ -108,6 +108,7 @@ function MobileNavbarAccordionColumn({
 
 function MobileNavbar({ navbarData }: { navbarData: QueryNavbarDataResult }) {
   const { columns, buttons } = navbarData ?? {};
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const logo = (navbarData as any)?.logo; // Logo property may not be in types
   const siteTitle = navbarData?.siteTitle ?? "";
   const [isOpen, setIsOpen] = useState(false);
@@ -194,7 +195,6 @@ function NavbarColumnLink({
       href={column.href ?? ""}
       target={column.openInNewTab ? "_blank" : "_self"}
       rel={column.openInNewTab ? "noopener noreferrer" : undefined}
-      passHref
     >
       <NavigationMenuLink
         className={cn(

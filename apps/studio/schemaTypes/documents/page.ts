@@ -27,11 +27,6 @@ export const page = defineType({
       validation: (Rule) => Rule.required().error("A page title is required"),
     }),
     defineField({
-      name: "icon",
-      title: "Icon",
-      type: "lucide-icon",
-    }),
-    defineField({
       name: "description",
       type: "text",
       title: "Description",

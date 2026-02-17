@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import type { JSX } from "react";
 
 import { PageBuilder } from "@/components/pagebuilder";
@@ -5,14 +6,13 @@ import { sanityFetch } from "@/lib/sanity/live";
 import { queryHomePageData } from "@/lib/sanity/query";
 import { getMetaData } from "@/lib/seo";
 
-
 async function fetchHomePageData() {
   return await sanityFetch({
     query: queryHomePageData,
   });
 }
 
-export async function generateMetadata() {
+export async function generateMetadata(): Promise<Metadata> {
   const homePageData = await fetchHomePageData();
   return await getMetaData(homePageData?.data ?? {});
 }

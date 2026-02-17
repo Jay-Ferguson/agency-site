@@ -8,7 +8,7 @@ import {
   unsplashAssetSource,
   unsplashImageAsset,
 } from "sanity-plugin-asset-source-unsplash";
-import { lucideIconPicker } from "sanity-plugin-lucide-icon-picker";
+import { IconManager } from "sanity-plugin-icon-manager";
 import { media, mediaAssetSource } from "sanity-plugin-media";
 import { umamiTool } from "sanity-plugin-umami-analytics-tool";
 
@@ -55,7 +55,9 @@ export default defineConfig({
     visionTool(),
     media(),
     codeInput(),
-    lucideIconPicker(),
+    IconManager({
+      keepItSimpleFor: "all",
+    }),
     presentationUrl(),
     unsplashImageAsset(),
   ],

@@ -25,10 +25,4 @@ export const pageBuilderField = defineField({
     "Build your page by adding different sections like text, images, and other content blocks",
 });
 
-export const iconField = defineField({
-  name: "icon",
-  title: "Icon",
-  type: "lucide-icon",
-  description:
-    "Choose a small picture symbol to represent this item, like a home icon or shopping cart",
-});
+

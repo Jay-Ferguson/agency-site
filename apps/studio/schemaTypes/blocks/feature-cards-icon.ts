@@ -1,15 +1,12 @@
-import { LayoutGrid } from "lucide-react";
 import { defineField } from "sanity";
 import { defineType } from "sanity";
 
-import { iconField } from "../common";
 import { customRichText } from "../definitions/rich-text";
 
 const featureCardIcon = defineField({
   name: "featureCardIcon",
   type: "object",
   fields: [
-    iconField,
     defineField({
       name: "title",
       type: "string",
@@ -19,12 +16,10 @@ const featureCardIcon = defineField({
   preview: {
     select: {
       title: "title",
-      icon: "icon",
     },
-    prepare: ({ title, icon }) => {
+    prepare: ({ title }) => {
       return {
         title: `${title ?? "Untitled"}`,
-        media: icon || null,
       };
     },
   },
@@ -33,7 +28,6 @@ const featureCardIcon = defineField({
 export const featureCardsIcon = defineType({
   name: "featureCardsIcon",
   type: "object",
-  icon: LayoutGrid,
   fields: [
     defineField({
       name: "eyebrow",

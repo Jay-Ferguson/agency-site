@@ -2,7 +2,6 @@ import {
   orderRankField,
   orderRankOrdering,
 } from "@sanity/orderable-document-list";
-import { FileTextIcon } from "lucide-react";
 import { defineArrayMember, defineField, defineType } from "sanity";
 
 import { PathnameFieldComponent } from "../../components/slug-field-component";
@@ -15,7 +14,6 @@ export const blog = defineType({
   name: "blog",
   title: "Blog",
   type: "document",
-  icon: FileTextIcon,
   groups: GROUPS,
   orderings: [orderRankOrdering],
   description:
