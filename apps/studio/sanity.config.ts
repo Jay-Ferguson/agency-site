@@ -4,10 +4,6 @@ import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
 import { presentationTool } from "sanity/presentation";
 import { structureTool } from "sanity/structure";
-import {
-  unsplashAssetSource,
-  unsplashImageAsset,
-} from "sanity-plugin-asset-source-unsplash";
 import { IconManager } from "sanity-plugin-icon-manager";
 import { media, mediaAssetSource } from "sanity-plugin-media";
 import { umamiTool } from "sanity-plugin-umami-analytics-tool";
@@ -59,7 +55,6 @@ export default defineConfig({
       keepItSimpleFor: "all",
     }),
     presentationUrl(),
-    unsplashImageAsset(),
   ],
 
   form: {

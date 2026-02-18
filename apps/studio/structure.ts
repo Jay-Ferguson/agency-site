@@ -46,7 +46,14 @@ type CreateIndexList = {
   index: Base<SingletonType>;
   context: StructureResolverContext;
 };
-
+const SCHEMAS_TO_HIDE = [
+  "footer",
+  "blog",
+  "page",
+  "media.tag",
+  "sanity.videoAsset",
+  "assist.instruction.context",
+];
 const createIndexListWithOrderableItems = ({
   S,
   index,
@@ -83,6 +90,23 @@ export const structure = (
   S: StructureBuilder,
   context: StructureResolverContext,
 ) => {
+  // list of all IDs manually used in list items above or in sub-menus
+  const MANUAL_IDS = [
+    "homePage",
+    "page",
+    "blog",
+    "blogIndex",
+    "faq",
+    "author",
+    "formGeneralSettings",
+    "navbar",
+    "footer",
+    "settings",
+    "assist.instruction.context", // Plugin type
+    "media.tag", // Plugin type
+    "sanity.videoAsset", // Plugin type
+  ];
+
   return S.list()
     .title("Content")
     .items([
@@ -95,13 +119,11 @@ export const structure = (
         list: { type: "blog", title: "Blogs" },
         context,
       }),
-      createList({
-        S,
-        type: "faq",
-        title: "FAQs",
-      }),
+      createList({ S, type: "faq", title: "FAQs" }),
       createList({ S, type: "author", title: "Authors" }),
+
       S.divider(),
+
       S.listItem()
         .title("Form General Settings")
         .child(
@@ -109,31 +131,15 @@ export const structure = (
             .schemaType("formGeneralSettings")
             .documentId("form-general-settings"),
         ),
-      ...S.documentTypeListItems().filter(
-        (item) =>
-          item.getId() && !["formGeneralSettings"].includes(item.getId()!),
-      ),
+
       S.listItem()
         .title("Site Configuration")
         .child(
           S.list()
             .title("Site Configuration")
             .items([
-              ...S.documentTypeListItems().filter(
-                (item) =>
-                  item.getId() &&
-                  !["formGeneralSettings"].includes(item.getId()!),
-              ),
-              createSingleTon({
-                S,
-                type: "navbar",
-                title: "Navigation",
-              }),
-              createSingleTon({
-                S,
-                type: "footer",
-                title: "Footer",
-              }),
+              createSingleTon({ S, type: "navbar", title: "Navigation" }),
+              createSingleTon({ S, type: "footer", title: "Footer" }),
               createSingleTon({
                 S,
                 type: "settings",
@@ -141,5 +147,12 @@ export const structure = (
               }),
             ]),
         ),
+
+      S.divider(),
+
+      // THE ONLY DYNAMIC CALL: Filters everything we handled manually above
+      ...S.documentTypeListItems().filter(
+        (listItem) => !MANUAL_IDS.includes(listItem.getId()!),
+      ),
     ]);
 };

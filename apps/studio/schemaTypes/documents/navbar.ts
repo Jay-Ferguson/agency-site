@@ -49,13 +49,6 @@ const navbarColumnLink = defineField({
   title: "Navigation Column Link",
   description: "A link within a navigation column",
   fields: [
-    iconField,
-    defineField({
-      name: "name",
-      type: "string",
-      title: "Link Text",
-      description: "The text that will be displayed for this navigation link",
-    }),
     defineField({
       name: "description",
       type: "string",
@@ -86,7 +79,6 @@ const navbarColumnLink = defineField({
       return {
         title: title || "Untitled Link",
         subtitle: `${urlType === "external" ? "External" : "Internal"} • ${truncatedUrl}${newTabIndicator}`,
-        media: Link,
       };
     },
   },
@@ -95,7 +87,6 @@ const navbarColumnLink = defineField({
 const navbarColumn = defineField({
   name: "navbarColumn",
   type: "object",
-  icon: LayoutPanelLeft,
   title: "Navigation Column",
   description: "A column of navigation links with an optional title",
   fields: [
@@ -133,7 +124,6 @@ export const navbar = defineType({
   name: "navbar",
   title: "Site Navigation",
   type: "document",
-  icon: PanelTop,
   description: "Configure the main navigation structure for your site",
   fields: [
     defineField({
