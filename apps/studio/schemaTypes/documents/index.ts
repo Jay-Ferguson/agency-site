@@ -1,9 +1,12 @@
+import { form } from "sanity/structure";
+
+import { contactForm } from "../blocks/contactFormBlock";
 import { author } from "./author";
 import { blog } from "./blog";
 import { blogIndex } from "./blog-index";
-import { contactForm } from "./contact-form";
 import { faq } from "./faq";
 import { footer } from "./footer";
+import formGeneralSettings from "./formGeneralSettings";
 import { homePage } from "./home-page";
 import { navbar } from "./navbar";
 import { page } from "./page";
@@ -11,14 +14,13 @@ import { page } from "./page";
 import {projects} from "./projects";
 import { settings } from "./settings";
 
-export const singletons = [homePage, blogIndex, settings, footer, navbar];
-
-export const documents = [
-  blog,
-  page,
-  faq,
-  author,
-  projects,
-  contactForm,
-  ...singletons,
+export const singletons = [
+  homePage,
+  blogIndex,
+  settings,
+  footer,
+  navbar,
+  formGeneralSettings,
 ];
+
+export const documents = [blog, page, faq, author, projects, ...singletons];

@@ -46,14 +46,7 @@ type CreateIndexList = {
   index: Base<SingletonType>;
   context: StructureResolverContext;
 };
-const SCHEMAS_TO_HIDE = [
-  "footer",
-  "blog",
-  "page",
-  "media.tag",
-  "sanity.videoAsset",
-  "assist.instruction.context",
-];
+
 const createIndexListWithOrderableItems = ({
   S,
   index,

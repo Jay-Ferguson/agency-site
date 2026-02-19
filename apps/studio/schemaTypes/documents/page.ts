@@ -76,14 +76,6 @@ export const page = defineType({
         hotspot: true,
       },
     }),
-    defineField({
-      name: "contactForm",
-      title: "Contact Form",
-      type: "reference",
-      to: [{ type: "contactForm" }],
-      description: "Select a contact form to display.",
-    }),
-
     pageBuilderField,
     ...seoFields.filter((field) => field.name !== "seoHideFromLists"),
     ...ogFields,

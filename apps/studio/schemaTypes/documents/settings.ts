@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import { IconManager } from "sanity-plugin-icon-manager";
 
 const socialLinks = defineField({
   name: "socialLinks",
@@ -93,7 +94,7 @@ export const settings = defineType({
     },
     prepare: ({ title }) => ({
       title: title || "Untitled Settings",
-      media: CogIcon,
+      media: "icon.manager",
     }),
   },
 });
