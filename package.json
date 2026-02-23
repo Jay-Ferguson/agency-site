@@ -15,6 +15,12 @@
         "sanity",
         "react"
       ]
+    },
+    "overrides": {
+      "refractor>hast-to-hyperscript": "10.0.1",
+      "refractor>lowlight": "2.9.0",
+      "@types/react": "19.2.10",
+      "@types/react-dom": "19.2.3"
     }
   },
   "devDependencies": {
