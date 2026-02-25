@@ -1,12 +1,13 @@
 import { assist } from "@sanity/assist";
 import { codeInput } from "@sanity/code-input";
+import { dashboardTool } from "@sanity/dashboard";
 import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
 import { presentationTool } from "sanity/presentation";
 import { structureTool } from "sanity/structure";
 import { IconManager } from "sanity-plugin-icon-manager";
-import { media, mediaAssetSource } from "sanity-plugin-media";
-import { umamiTool } from "sanity-plugin-umami-analytics-tool";
+import { media } from "sanity-plugin-media";
+import { plausibleWidget } from "sanity-plugin-plausible-analytics";
 
 import { Logo } from "./components/logo";
 import { locations } from "./location";
@@ -30,8 +31,12 @@ export default defineConfig({
     enabled: true,
   },
   plugins: [
-    umamiTool({
-      url: process.env.NEXT_PUBLIC_UMAMI_URL as string,
+    dashboardTool({
+      widgets: [
+        plausibleWidget({
+          url: "https://plausible.io/share/your-project?auth=xxxx",
+        }),
+      ],
     }),
     presentationTool({
       resolve: {

@@ -104,7 +104,6 @@ export const footer = defineType({
     },
     prepare: ({ title }) => ({
       title: title || "Untitled Footer",
-      media: PanelBottom,
     }),
   },
 });
