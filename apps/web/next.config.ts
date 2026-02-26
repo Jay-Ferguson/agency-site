@@ -4,6 +4,19 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   /* config options here */
   transpilePackages: ["@workspace/ui"],
+  skipTrailingSlashRedirect: true,
+  async rewrites() {
+    return [
+      {
+        source: "/ingest/static/:path*",
+        destination: "https://eu-assets.i.posthog.com/static/:path*",
+      },
+      {
+        source: "/ingest/:path*",
+        destination: "https://eu.i.posthog.com/:path*",
+      },
+    ];
+  },
   turbopack: {
     root: "/Users/Jay/Desktop/personal-site/agency_site/agency-site",
   },

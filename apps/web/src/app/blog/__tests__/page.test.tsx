@@ -1,15 +1,15 @@
-import { sanityFetch } from '@/lib/sanity/live'
-import { queryBlogIndexPageData } from '@/lib/sanity/query'
+import { sanityFetch } from "@/lib/sanity/live";
+import { queryBlogIndexPageData } from "@/lib/sanity/query";
 
 // Mock the sanityFetch function
-jest.mock('@/lib/sanity/live', () => ({
+jest.mock("@/lib/sanity/live", () => ({
   sanityFetch: jest.fn(),
-}))
+}));
 
 // Mock the query
-jest.mock('@/lib/sanity/query', () => ({
-  queryBlogIndexPageData: 'mock-query',
-}))
+jest.mock("@/lib/sanity/query", () => ({
+  queryBlogIndexPageData: "mock-query",
+}));
 
 // Import the fetchBlogPosts function (we need to extract it from the page component)
 // Since it's not exported, we'll test it through the behavior of the component
@@ -18,65 +18,69 @@ jest.mock('@/lib/sanity/query', () => ({
 // Mock implementation of fetchBlogPosts based on the source code
 async function fetchBlogPosts() {
   try {
-    const result = await sanityFetch({ query: queryBlogIndexPageData })
-    return [result.data, null] as const
+    const result = await sanityFetch({ query: queryBlogIndexPageData });
+    return [result.data, null] as const;
   } catch (error) {
-    return [undefined, error] as const
+    return [undefined, error] as const;
   }
 }
 
-describe('fetchBlogPosts', () => {
+describe("fetchBlogPosts", () => {
   beforeEach(() => {
-    jest.clearAllMocks()
-  })
+    jest.clearAllMocks();
+  });
 
-  it('correctly handles errors from sanityFetch and returns the error', async () => {
+  it("correctly handles errors from sanityFetch and returns the error", async () => {
     // Arrange
-    const mockError = new Error('Failed to fetch data')
-    const mockSanityFetch = sanityFetch as jest.MockedFunction<typeof sanityFetch>
-    mockSanityFetch.mockRejectedValue(mockError)
+    const mockError = new Error("Failed to fetch data");
+    const mockSanityFetch = sanityFetch as jest.MockedFunction<
+      typeof sanityFetch
+    >;
+    mockSanityFetch.mockRejectedValue(mockError);
 
     // Act
-    const [data, error] = await fetchBlogPosts()
+    const [data, error] = await fetchBlogPosts();
 
     // Assert
-    expect(data).toBeUndefined()
-    expect(error).toBe(mockError)
+    expect(data).toBeUndefined();
+    expect(error).toBe(mockError);
     expect(mockSanityFetch).toHaveBeenCalledWith({
       query: queryBlogIndexPageData,
-    })
-  })
+    });
+  });
 
-  it('returns the expected data and null on successful fetch', async () => {
+  it("returns the expected data and null on successful fetch", async () => {
     // Arrange
     const mockData = {
       blogs: [
         {
-          _id: '1',
-          title: 'Test Blog',
-          slug: { current: 'test-blog' },
+          _id: "1",
+          title: "Test Blog",
+          slug: { current: "test-blog" },
         },
       ],
-      title: 'Blog Index',
-      description: 'Blog index page',
+      title: "Blog Index",
+      description: "Blog index page",
       pageBuilder: [],
-      _id: 'page-id',
-      _type: 'blogIndex',
+      _id: "page-id",
+      _type: "blogIndex",
       displayFeaturedBlogs: false,
-      featuredBlogsCount: '0',
-    }
-    const mockResult = { data: mockData }
-    const mockSanityFetch = sanityFetch as jest.MockedFunction<typeof sanityFetch>
-    mockSanityFetch.mockResolvedValue(mockResult)
+      featuredBlogsCount: "0",
+    };
+    const mockResult = { data: mockData };
+    const mockSanityFetch = sanityFetch as jest.MockedFunction<
+      typeof sanityFetch
+    >;
+    mockSanityFetch.mockResolvedValue(mockResult);
 
     // Act
-    const [data, error] = await fetchBlogPosts()
+    const [data, error] = await fetchBlogPosts();
 
     // Assert
-    expect(data).toBe(mockData)
-    expect(error).toBeNull()
+    expect(data).toBe(mockData);
+    expect(error).toBeNull();
     expect(mockSanityFetch).toHaveBeenCalledWith({
       query: queryBlogIndexPageData,
-    })
-  })
-})
+    });
+  });
+});

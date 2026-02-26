@@ -1,6 +1,9 @@
+"use client";
+
 import { Button } from "@workspace/ui/components/button";
 import { cn } from "@workspace/ui/lib/utils";
 import Link from "next/link";
+import posthog from "posthog-js";
 import type { ComponentProps } from "react";
 
 import type { SanityButtonProps } from "@/types";
@@ -37,6 +40,14 @@ function SanityButton({
         target={openInNewTab ? "_blank" : "_self"}
         aria-label={`Navigate to ${text}`}
         title={`Click to visit ${text}`}
+        onClick={() =>
+          posthog.capture("cta_button_clicked", {
+            button_text: text,
+            button_href: href,
+            opens_in_new_tab: openInNewTab ?? false,
+            button_variant: variant,
+          })
+        }
       >
         {text}
       </Link>

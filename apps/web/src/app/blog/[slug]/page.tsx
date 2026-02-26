@@ -7,6 +7,7 @@ import { SanityImage } from "@/components/sanity-image";
 import { TableOfContent } from "@/components/table-of-content";
 import { client } from "@/lib/sanity/client";
 import { sanityFetch } from "@/lib/sanity/live";
+import { getPostHogClient } from "@/lib/posthog-server";
 import { queryBlogPaths, queryBlogSlugPageData } from "@/lib/sanity/query";
 import { getMetaData } from "@/lib/seo";
 import { handleErrors } from "@/utils";
@@ -73,6 +74,18 @@ export default async function BlogSlugPage({
   const [res, err] = await fetchBlogSlugPageData(slug);
   if (err || !res?.data) return notFound();
   const { title, description, image, richText } = res.data ?? {};
+
+  const posthog = getPostHogClient();
+  posthog.capture({
+    distinctId: "anonymous",
+    event: "blog_post_viewed",
+    properties: {
+      blog_slug: slug,
+      blog_title: title ?? null,
+      $current_url: `/blog/${slug}`,
+    },
+  });
+  await posthog.shutdown();
 
   // Cast richText to RichText type
   const typedRichText: PortableTextBlock[] | undefined = richText as

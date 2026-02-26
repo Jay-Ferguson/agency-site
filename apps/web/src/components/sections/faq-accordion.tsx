@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Accordion,
   AccordionContent,
@@ -7,6 +9,7 @@ import {
 import { Badge } from "@workspace/ui/components/badge";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import posthog from "posthog-js";
 
 import type { PagebuilderType } from "@/types";
 
@@ -39,6 +42,15 @@ export function FaqAccordion({
             collapsible
             className="w-full"
             defaultValue="3"
+            onValueChange={(value) => {
+              if (value) {
+                const faq = faqs?.find((f) => f?._id === value);
+                posthog.capture("faq_item_expanded", {
+                  faq_id: value,
+                  faq_title: faq?.title ?? null,
+                });
+              }
+            }}
           >
             {faqs?.map((faq, index) => (
               <AccordionItem

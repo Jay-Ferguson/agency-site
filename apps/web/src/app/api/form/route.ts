@@ -1,6 +1,8 @@
 import { type NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
+import { getPostHogClient } from "@/lib/posthog-server";
+
 export async function POST(request: NextRequest) {
   const { name, email, message } = await request.json();
 
@@ -28,9 +30,34 @@ export async function POST(request: NextRequest) {
       `,
     });
 
+    const posthog = getPostHogClient();
+    posthog.capture({
+      distinctId: email,
+      event: "contact_form_api_submitted",
+      properties: {
+        name,
+        email,
+        has_message: typeof message === "string" && message.trim().length > 0,
+        source: "api_form",
+      },
+    });
+    await posthog.shutdown();
+
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error(error);
+
+    const posthog = getPostHogClient();
+    posthog.capture({
+      distinctId: email ?? "anonymous",
+      event: "contact_form_api_failed",
+      properties: {
+        error_message: error instanceof Error ? error.message : "Unknown error",
+        source: "api_form",
+      },
+    });
+    await posthog.shutdown();
+
     return NextResponse.json({ success: false }, { status: 500 });
   }
 }

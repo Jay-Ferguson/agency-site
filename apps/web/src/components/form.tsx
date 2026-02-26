@@ -2,6 +2,7 @@
 
 import type { JSX } from "react";
 import { useState } from "react";
+import posthog from "posthog-js";
 
 export function Form(): JSX.Element {
   const [name, setName] = useState("");
@@ -25,8 +26,14 @@ export function Form(): JSX.Element {
 
     if (res.ok) {
       setSubmitted(true);
+      posthog.capture("contact_form_submitted", {
+        has_message: message.trim().length > 0,
+      });
     } else {
       setError(true);
+      posthog.capture("contact_form_failed", {
+        status_code: res.status,
+      });
     }
 
     setSubmitting(false);

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 import { clientPost } from "@/lib/sanity/client";
+import { getPostHogClient } from "@/lib/posthog-server";
 
 async function uploadResume(
   file: File,
@@ -123,6 +124,16 @@ export async function POST(request: Request) {
       const recaptchaData = await recaptchaResponse.json();
 
       if (!recaptchaData.success) {
+        const posthog = getPostHogClient();
+        posthog.capture({
+          distinctId: "anonymous",
+          event: "submit_form_recaptcha_failed",
+          properties: {
+            source: "submit_form_api",
+          },
+        });
+        await posthog.shutdown();
+
         return NextResponse.json(
           {
             success: false,
@@ -197,6 +208,19 @@ export async function POST(request: Request) {
       mailSettings: mailSettings,
     });
 
+    const submitterEmail = emailFormData.email ?? "anonymous";
+    const posthog = getPostHogClient();
+    posthog.capture({
+      distinctId: submitterEmail,
+      event: "submit_form_api_submitted",
+      properties: {
+        has_resume: Boolean(emailFormData.resume),
+        field_count: Object.keys(emailFormData).length,
+        source: "submit_form_api",
+      },
+    });
+    await posthog.shutdown();
+
     return NextResponse.json(
       {
         success: true,
@@ -206,6 +230,18 @@ export async function POST(request: Request) {
     );
   } catch (error) {
     console.error("API Error:", error);
+
+    const posthog = getPostHogClient();
+    posthog.capture({
+      distinctId: "anonymous",
+      event: "submit_form_api_failed",
+      properties: {
+        error_message: error instanceof Error ? error.message : "Unknown error",
+        source: "submit_form_api",
+      },
+    });
+    await posthog.shutdown();
+
     return NextResponse.json(
       {
         success: false,
