@@ -5,6 +5,7 @@ import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
 import { presentationTool } from "sanity/presentation";
 import { structureTool } from "sanity/structure";
+import { vercelWidget } from "sanity-plugin-dashboard-widget-vercel";
 import { IconManager } from "sanity-plugin-icon-manager";
 import { media } from "sanity-plugin-media";
 import { plausibleWidget } from "sanity-plugin-plausible-analytics";
@@ -35,6 +36,9 @@ export default defineConfig({
       widgets: [
         plausibleWidget({
           url: "https://plausible.io/share/your-project?auth=xxxx",
+        }),
+        vercelWidget({
+          layout: { width: "full" /* default and reccomended */ },
         }),
       ],
     }),
