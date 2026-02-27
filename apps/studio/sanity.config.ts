@@ -11,6 +11,7 @@ import { media } from "sanity-plugin-media";
 import { plausibleWidget } from "sanity-plugin-plausible-analytics";
 
 import { Logo } from "./components/logo";
+import { PostHogAnalytics, PostHogIcon } from "./components/posthog-analytics";
 import { locations } from "./location";
 import { presentationUrl } from "./plugins/presentation-url";
 import { schemaTypes } from "./schemaTypes";
@@ -31,6 +32,17 @@ export default defineConfig({
   mediaLibrary: {
     enabled: true,
   },
+
+  tools: (prev) => [
+    ...prev,
+    {
+      name: "posthog-analytics",
+      title: "Analytics",
+      icon: PostHogIcon,
+      component: PostHogAnalytics,
+    },
+  ],
+
   plugins: [
     dashboardTool({
       widgets: [
