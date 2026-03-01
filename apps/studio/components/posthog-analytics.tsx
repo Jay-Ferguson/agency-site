@@ -13,7 +13,7 @@ export function PostHogAnalytics() {
           justifyContent: "center",
           height: "100vh",
           gap: "1rem",
-          color: "#6b7280",
+          color: "#6C727D",
         }}
       >
         <ActivityIcon />
@@ -48,6 +48,7 @@ export function PostHogAnalytics() {
         border: "none",
       }}
       allow="fullscreen"
+      sandbox="allow-scripts allow-same-origin allow-popups"
     />
   );
 }
