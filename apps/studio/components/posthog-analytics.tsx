@@ -24,7 +24,7 @@ export function PostHogAnalytics() {
           Add your PostHog shared dashboard URL to{" "}
           <code
             style={{
-              backgroundColor: "#f3f4f6",
+              backgroundColor: "#E1E2E3",
               padding: "0.125rem 0.375rem",
               borderRadius: "0.25rem",
               fontSize: "0.875rem",
