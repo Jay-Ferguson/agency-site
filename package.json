@@ -35,6 +35,6 @@
     "node": ">=20"
   },
   "dependencies": {
-    "sanity": "^5.7.0"
+    "sanity": "^5.13.0"
   }
 }
