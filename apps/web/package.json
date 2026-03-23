@@ -23,6 +23,7 @@
     "@sanity/visual-editing": "^5.2.1",
     "@workspace/ui": "workspace:*",
     "babel-plugin-react-compiler": "19.0.0-beta-e993439-20250328",
+    "date-fns": "^4.1.0",
     "gsap": "^3.13.0",
     "lucide-react": "0.487.0",
     "motion": "^12.23.12",

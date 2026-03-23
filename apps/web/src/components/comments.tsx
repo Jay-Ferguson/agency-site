@@ -1,26 +1,45 @@
 "use client";
 
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import { client } from "@/lib/sanity/client";
 
 export default function Comments() {
+  const [comments, setComments] = useState<any[]>([]);
+  const [error, setError] = useState<string | null>(null);
+
   useEffect(() => {
     const fetchComments = async () => {
       try {
         const comments = await client.fetch('*[_type == "comments"]');
-        console.log(comments);
+        setComments(comments);
       } catch (error: unknown) {
         if (error instanceof Error) {
-          console.error("Error fetching comments:", error.message);
+          setError(error.message);
         } else {
-          console.error("An unknown error occurred:", error);
+          setError("An unknown error occurred");
         }
       }
     };
 
     fetchComments();
   }, []);
-  return <div>comments</div>;
+
+  if (error) {
+    return <div>Error fetching comments: {error}</div>;
+  }
+
+  return (
+    <div>
+      {comments.length === 0 ? (
+        <div>No comments yet.</div>
+      ) : (
+        <ul>
+          {comments.map((comment, idx) => (
+            <li key={comment._id || idx}>{JSON.stringify(comment)}</li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
 }

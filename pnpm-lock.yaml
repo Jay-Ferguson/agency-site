@@ -166,6 +166,9 @@ importers:
       babel-plugin-react-compiler:
         specifier: 19.0.0-beta-e993439-20250328
         version: 19.0.0-beta-e993439-20250328
+      date-fns:
+        specifier: ^4.1.0
+        version: 4.1.0
       gsap:
         specifier: ^3.13.0
         version: 3.14.2
