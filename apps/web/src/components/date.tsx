@@ -8,7 +8,7 @@ export default function Date({ dateString }: { dateString: string }) {
   // Format as ISO 8601 string (YYYY-MM-DD)
   const isoString = date.toISOString();
   return(
-       <time dateTime={isoString}>
+       <time dateTime={isoString}>{format(date,'LLLL d, yyyy')}
        {isoString}
        </time>
   )

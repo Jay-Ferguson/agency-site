@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 
+import Date from "./date";
 import { client } from "@/lib/sanity/client";
 
 export default function Comments() {
@@ -32,7 +33,7 @@ export default function Comments() {
   return (
     <div>
       {comments.length === 0 ? (
-        <div>No comments yet.</div>
+        <div className="text-gray-500 p-1.5 flex justify-center opacity-55">No comments yet.</div>
       ) : (
         <ul>
           {comments.map((comment, idx) => (
