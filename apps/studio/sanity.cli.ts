@@ -13,5 +13,5 @@ export default defineCliConfig({
     host && host !== "main"
       ? `${host}-turbo-personal-site-sanity`
       : "personal-site-sanity",
-  autoUpdates: false,
+  deployment: { autoUpdates: false },
 });
