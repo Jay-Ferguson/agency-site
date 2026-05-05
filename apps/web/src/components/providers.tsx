@@ -8,7 +8,7 @@ import { ThemeProvider } from "./theme-provider";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <ConsentManagerProvider options={{ consentCategories: ["analytics"] }}>
+    <ConsentManagerProvider options={{ consentCategories: [] }}>
       <ThemeProvider
         attribute="class"
         defaultTheme="system"

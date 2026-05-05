@@ -1,5 +1,5 @@
-import { sanityFetch } from "@/lib/sanity/live";
 import { queryBlogIndexPageData } from "@/lib/sanity/query";
+import { sanityFetch } from "@/lib/sanity/live";
 
 // Mock the sanityFetch function
 jest.mock("@/lib/sanity/live", () => ({

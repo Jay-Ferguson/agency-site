@@ -55,12 +55,12 @@ describe("Contact Page Component", () => {
     const mockSanityFetch = sanityFetch as jest.MockedFunction<
       typeof sanityFetch
     >;
-    const mockClientFetch = client.fetch as jest.MockedFunction<
-      typeof client.fetch
-    >;
+    const mockClientFetch = client.fetch as jest.Mock;
 
     mockSanityFetch.mockResolvedValue({
       data: mockPageData,
+      sourceMap: null,
+      tags: [],
     });
 
     // Mock the form data fetch calls
@@ -103,6 +103,8 @@ describe("Contact Page Component", () => {
 
     mockSanityFetch.mockResolvedValue({
       data: null,
+      sourceMap: null,
+      tags: [],
     });
 
     const props = {
@@ -133,6 +135,8 @@ describe("Contact Page Component", () => {
 
     mockSanityFetch.mockResolvedValue({
       data: mockPageData,
+      sourceMap: null,
+      tags: [],
     });
 
     const props = {

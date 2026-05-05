@@ -1,19 +1,20 @@
 "use client";
 
-import { useConsent } from "@c15t/react";
+import { useConsentManager } from "@c15t/nextjs";
 import posthog from "posthog-js";
 import { useEffect } from "react";
 
 export function PostHogConsentListener() {
-  const { consent } = useConsent();
+  // C15T exposes analytics-style consent as the 'measurement' category.
+  const { consents } = useConsentManager();
 
   useEffect(() => {
-    if (consent?.analytics) {
+    if (consents?.measurement) {
       posthog.opt_in_capturing();
     } else {
       posthog.opt_out_capturing();
     }
-  }, [consent]);
+  }, [consents]);
 
   return null;
 }
