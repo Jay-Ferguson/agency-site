@@ -1,7 +1,8 @@
 /**
  * @see https://prettier.io/docs/en/configuration.html
- * @type {import("prettier").Config}
  */
+// fallow-ignore-next-line unlisted-dependencies
+/** @type {import("prettier").Config} */
 const config = {
   printWidth: 80,
   semi: true,

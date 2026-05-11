@@ -1,4 +1,5 @@
 // eslint-env node
+// fallow-ignore-next-line unlisted-dependencies
 import "dotenv/config";
 import "server-only";
 

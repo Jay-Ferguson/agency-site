@@ -1,4 +1,5 @@
 import { nextJsConfig } from "@workspace/eslint-config/next-js";
+// fallow-ignore-next-line unlisted-dependencies
 import globals from "globals";
 /** @type {import("eslint").Linter.Config} */
 export default [

@@ -1,0 +1,40 @@
+npm warn Unknown project config "peer-dependency-rules.allowed-versions.sanity". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "peer-dependency-rules.allowed-versions.react". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "peer-dependency-rules.allowed-versions.react-dom". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+▲ Next.js 16.1.6 (Turbopack)
+- Local:         http://localhost:3003
+- Network:       http://192.168.86.247:3003
+- Environments: .env.local
+- Experiments (use with caution):
+  ✓ inlineCss
+
+✓ Starting...
+✓ Ready in 1437ms
+○ Compiling / ...
+ GET / 200 in 9.6s (compile: 7.5s, render: 2.1s)
+ │ GET https://e8gff5v9.apicdn.../v2024-10-28/data/query/..?query=%0A++*%5B.. 200 in 835ms (cache skip)
+ │ │ Cache skipped reason: (auto no cache)
+ │ GET https://e8gff5v9.apicdn.../v2024-10-28/data/query/..?query=%0A++*%5B.. 200 in 831ms (cache skip)
+ │ │ Cache skipped reason: (auto no cache)
+ │ GET https://e8gff5v9.apicdn.../v2024-10-28/data/query/..?query=%0A++*%5B.. 200 in 59ms (cache skip)
+ │ │ Cache skipped reason: (auto no cache)
+ │ GET https://e8gff5v9.apicdn.../v2024-10-28/data/query/..?query=%0A++*%5B.. 200 in 58ms (cache skip)
+ │ │ Cache skipped reason: (auto no cache)
+ │ GET https://e8gff5v9.apicdn.../v2024-10-28/data/query/..?query=*%5B_type.. 200 in 1013ms (cache skip)
+ │ │ Cache skipped reason: (auto no cache)
+ │ GET https://e8gff5v9.apicdn.../v2024-10-28/data/query/..?query=*%5B_type.. 200 in 932ms (cache skip)
+ │ │ Cache skipped reason: (auto no cache)
+ │ GET https://e8gff5v9.apicdn.../v2024-10-28/data/query/..?query=%0A++*%5B.. 200 in 958ms (cache skip)
+ │ │ Cache skipped reason: (auto no cache)
+ │ GET https://e8gff5v9.apicdn.../v2024-10-28/data/query/..?query=%0A++*%5B.. 200 in 987ms (cache skip)
+ │ │ Cache skipped reason: (auto no cache)
+ │ GET https://e8gff5v9.apicdn.../v2024-10-28/data/query/..?query=%0A++*%5B.. 200 in 68ms (cache skip)
+ │ │ Cache skipped reason: (auto no cache)
+ │ GET https://e8gff5v9.apicdn.../v2024-10-28/data/query/..?query=*%5B_type.. 200 in 201ms (cache skip)
+ │ │ Cache skipped reason: (auto no cache)
+ │ GET https://e8gff5v9.apicdn.../v2024-10-28/data/query/..?query=*%5B_type.. 200 in 199ms (cache skip)
+ │ │ Cache skipped reason: (auto no cache)
+ │ GET https://e8gff5v9.apicdn.../v2024-10-28/data/query/..?query=%0A++*%5B.. 200 in 197ms (cache skip)
+ │ │ Cache skipped reason: (auto no cache)
+ │ GET https://e8gff5v9.api.san../v2024-10-28/data/query/..?query=%0A++*%5B.. 200 in 391ms (cache skip)
+ │ │ Cache skipped reason: (auto no cache)
