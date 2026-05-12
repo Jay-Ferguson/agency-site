@@ -14,6 +14,9 @@ importers:
 
   .:
     dependencies:
+      react-day-picker:
+        specifier: ^10.0.0
+        version: 10.0.0(react@19.2.4)
       sanity:
         specifier: ^5.13.0
         version: 5.13.0(@emotion/is-prop-valid@1.4.0)(@noble/hashes@2.0.1)(@types/node@25.2.0)(@types/react@19.2.10)(babel-plugin-react-compiler@1.0.0)(immer@10.2.0)(jiti@2.6.1)(lightningcss@1.31.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.8(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(terser@5.37.0)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2)
@@ -373,12 +376,18 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      date-fns:
+        specifier: ^4.1.0
+        version: 4.1.0
       lucide-react:
         specifier: 0.561.0
         version: 0.561.0(react@19.2.4)
       react:
         specifier: ^19.1.0
         version: 19.2.4
+      react-day-picker:
+        specifier: ^10.0.0
+        version: 10.0.0(react@19.2.4)
       react-dom:
         specifier: ^19.1.0
         version: 19.2.4(react@19.2.4)
@@ -8587,6 +8596,12 @@ packages:
     peerDependencies:
       react: ^17.0.0 || ^18.0.0 || ^19.0.0 || ^0.0.0-experimental
 
+  react-day-picker@10.0.0:
+    resolution: {integrity: sha512-lrEXo5wFPsq5LTcayelM3BPueD00v7zbdipAY+EIdPcseVykYwkOWx4Ujn/EtbBvpnp8ZPUHol17HXH6kVbZoA==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      react: '>=16.8.0'
+
   react-dom@19.2.4:
     resolution: {integrity: sha512-AXJdLo8kgMbimY95O2aKQqsz2iWi9jMgKJhRBAxECE4IFxfcazB2LmzloIoibJI3C12IlY20+KFaLv+71bUJeQ==}
     peerDependencies:
@@ -14784,10 +14799,10 @@ snapshots:
       - react-is
       - rxjs
 
-  '@sanity/presentation-comlink@2.0.1(@sanity/client@7.20.0)(@sanity/types@5.13.0(@types/react@19.2.10)(debug@4.4.3))':
+  '@sanity/presentation-comlink@2.0.1(@sanity/client@7.20.0(debug@4.4.3))(@sanity/types@5.13.0(@types/react@19.2.10)(debug@4.4.3))':
     dependencies:
       '@sanity/comlink': 4.0.1
-      '@sanity/visual-editing-types': 1.1.8(@sanity/client@7.20.0)(@sanity/types@5.13.0(@types/react@19.2.10)(debug@4.4.3))
+      '@sanity/visual-editing-types': 1.1.8(@sanity/client@7.20.0(debug@4.4.3))(@sanity/types@5.13.0(@types/react@19.2.10)(debug@4.4.3))
     transitivePeerDependencies:
       - '@sanity/client'
       - '@sanity/types'
@@ -14800,7 +14815,7 @@ snapshots:
       - '@sanity/client'
       - '@sanity/types'
 
-  '@sanity/preview-url-secret@4.0.3(@sanity/client@7.20.0)':
+  '@sanity/preview-url-secret@4.0.3(@sanity/client@7.20.0(debug@4.4.3))':
     dependencies:
       '@sanity/client': 7.20.0(debug@4.4.3)
       '@sanity/uuid': 3.0.2
@@ -15159,7 +15174,7 @@ snapshots:
       - '@sanity/types'
       - typescript
 
-  '@sanity/visual-editing-types@1.1.8(@sanity/client@7.20.0)(@sanity/types@5.13.0(@types/react@19.2.10)(debug@4.4.3))':
+  '@sanity/visual-editing-types@1.1.8(@sanity/client@7.20.0(debug@4.4.3))(@sanity/types@5.13.0(@types/react@19.2.10)(debug@4.4.3))':
     dependencies:
       '@sanity/client': 7.20.0(debug@4.4.3)
     optionalDependencies:
@@ -15190,7 +15205,7 @@ snapshots:
       '@sanity/insert-menu': 3.0.4(@emotion/is-prop-valid@1.4.0)(@sanity/types@5.17.1(@types/react@19.2.10)(debug@4.4.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.8(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
       '@sanity/mutate': 0.16.1(debug@4.4.3)(xstate@5.28.0)
       '@sanity/presentation-comlink': 2.0.1(@sanity/client@7.20.0)(@sanity/types@5.17.1(@types/react@19.2.10)(debug@4.4.3))
-      '@sanity/preview-url-secret': 4.0.3(@sanity/client@7.20.0)
+      '@sanity/preview-url-secret': 4.0.3(@sanity/client@7.20.0(debug@4.4.3))
       '@sanity/ui': 3.1.13(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.4(react@19.2.4))(react-is@19.2.4)(react@19.2.4)(styled-components@6.3.8(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
       '@sanity/visual-editing-csm': 3.0.5(@sanity/client@7.20.0)(@sanity/types@5.17.1(@types/react@19.2.10))(typescript@5.9.3)
       '@vercel/stega': 1.0.0
@@ -20159,6 +20174,12 @@ snapshots:
     dependencies:
       react: 19.2.4
 
+  react-day-picker@10.0.0(react@19.2.4):
+    dependencies:
+      '@date-fns/tz': 1.4.1
+      date-fns: 4.1.0
+      react: 19.2.4
+
   react-dom@19.2.4(react@19.2.4):
     dependencies:
       react: 19.2.4
@@ -20847,8 +20868,8 @@ snapshots:
       '@sanity/message-protocol': 0.19.0
       '@sanity/migrate': 5.2.5(@noble/hashes@2.0.1)(@sanity/telemetry@0.8.1(react@19.2.4))(@types/node@25.2.0)(@types/react@19.2.10)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.37.0)(xstate@5.26.0)(yaml@2.8.2)
       '@sanity/mutator': 5.13.0(@types/react@19.2.10)
-      '@sanity/presentation-comlink': 2.0.1(@sanity/client@7.20.0)(@sanity/types@5.13.0(@types/react@19.2.10)(debug@4.4.3))
-      '@sanity/preview-url-secret': 4.0.3(@sanity/client@7.20.0)
+      '@sanity/presentation-comlink': 2.0.1(@sanity/client@7.20.0(debug@4.4.3))(@sanity/types@5.13.0(@types/react@19.2.10)(debug@4.4.3))
+      '@sanity/preview-url-secret': 4.0.3(@sanity/client@7.20.0(debug@4.4.3))
       '@sanity/schema': 5.13.0(@types/react@19.2.10)(debug@4.4.3)
       '@sanity/sdk': 2.1.2(@types/react@19.2.10)(debug@4.4.3)(immer@10.2.0)(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4))
       '@sanity/telemetry': 0.8.1(react@19.2.4)
@@ -21026,7 +21047,7 @@ snapshots:
       '@sanity/mutate': 0.16.1(debug@4.4.3)(xstate@5.28.0)
       '@sanity/mutator': 5.17.1(@types/react@19.2.10)
       '@sanity/presentation-comlink': 2.0.1(@sanity/client@7.20.0)(@sanity/types@5.17.1(@types/react@19.2.10)(debug@4.4.3))
-      '@sanity/preview-url-secret': 4.0.3(@sanity/client@7.20.0)
+      '@sanity/preview-url-secret': 4.0.3(@sanity/client@7.20.0(debug@4.4.3))
       '@sanity/schema': 5.17.1(@types/react@19.2.10)(debug@4.4.3)
       '@sanity/sdk': 2.1.2(@types/react@19.2.10)(debug@4.4.3)(immer@10.2.0)(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4))
       '@sanity/telemetry': 0.8.1(react@19.2.4)

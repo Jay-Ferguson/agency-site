@@ -41,6 +41,7 @@
     "node": ">=20"
   },
   "dependencies": {
+    "react-day-picker": "^10.0.0",
     "sanity": "^5.13.0"
   }
 }
