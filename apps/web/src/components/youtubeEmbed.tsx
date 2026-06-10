@@ -1,5 +1,5 @@
-// fallow-ignore-file unused-file
 // @ts-nocheck
+// fallow-ignore-file unused-file
 // src/components/Body.tsx
 import { PortableText } from "next-sanity";
 import React from "react";
