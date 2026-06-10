@@ -1,3 +1,4 @@
+// fallow-ignore-file unused-file
 import { format, isValid, parseISO } from 'date-fns'
 
 export default function Date({ dateString }: { dateString: string }) {

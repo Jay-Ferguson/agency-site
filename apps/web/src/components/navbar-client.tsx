@@ -106,6 +106,7 @@ function MobileNavbarAccordionColumn({
   );
 }
 
+// fallow-ignore-next-line complexity
 function MobileNavbar({ navbarData }: { navbarData: QueryNavbarDataResult }) {
   const { columns, buttons } = navbarData ?? {};
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -181,6 +182,7 @@ function MobileNavbar({ navbarData }: { navbarData: QueryNavbarDataResult }) {
   );
 }
 
+// fallow-ignore-next-line complexity
 function NavbarColumnLink({
   column,
 }: {

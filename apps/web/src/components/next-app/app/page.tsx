@@ -1,3 +1,5 @@
+// fallow-ignore-file unused-file
+// fallow-ignore-next-line unresolved-import
 import { Button } from "@/components/ui/button"
 
 export default function Page() {

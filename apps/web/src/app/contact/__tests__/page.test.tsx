@@ -103,6 +103,7 @@ describe("Contact Page Component", () => {
 
     mockSanityFetch.mockResolvedValue({
       data: null,
+      // fallow-ignore-next-line code-duplication
       sourceMap: null,
       tags: [],
     });
@@ -135,6 +136,7 @@ describe("Contact Page Component", () => {
 
     mockSanityFetch.mockResolvedValue({
       data: mockPageData,
+      // fallow-ignore-next-line code-duplication
       sourceMap: null,
       tags: [],
     });

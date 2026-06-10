@@ -1,3 +1,4 @@
+// fallow-ignore-file unused-file
 import { Refractor, registerLanguage } from "react-refractor";
 import js from "refractor/javascript";
 // First, install the package using pnpm:

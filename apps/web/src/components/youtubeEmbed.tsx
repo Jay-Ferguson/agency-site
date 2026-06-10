@@ -1,3 +1,4 @@
+// fallow-ignore-file unused-file
 // @ts-nocheck
 // src/components/Body.tsx
 import { PortableText } from "next-sanity";

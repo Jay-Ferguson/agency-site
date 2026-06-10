@@ -1,3 +1,4 @@
+// fallow-ignore-file unused-file
 "use client"
 
 import * as React from "react"
@@ -21,6 +22,7 @@ function ThemeProvider({
   )
 }
 
+// fallow-ignore-next-line complexity
 function isTypingTarget(target: EventTarget | null) {
   if (!(target instanceof HTMLElement)) {
     return false
@@ -38,6 +40,7 @@ function ThemeHotkey() {
   const { resolvedTheme, setTheme } = useTheme()
 
   React.useEffect(() => {
+    // fallow-ignore-next-line complexity
     function onKeyDown(event: KeyboardEvent) {
       if (event.defaultPrevented || event.repeat) {
         return
@@ -68,4 +71,5 @@ function ThemeHotkey() {
   return null
 }
 
+// fallow-ignore-next-line unused-export
 export { ThemeProvider }

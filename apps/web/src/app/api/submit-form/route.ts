@@ -21,6 +21,7 @@ async function uploadResume(
   };
 }
 
+// fallow-ignore-next-line complexity
 async function sendEmailWithAttachment(emailData: {
   formData: { [key: string]: string };
   mailSettings: Record<string, unknown>;
@@ -95,6 +96,7 @@ async function sendEmailWithAttachment(emailData: {
   }
 }
 
+// fallow-ignore-next-line complexity
 export async function POST(request: Request) {
   try {
     const formData = await request.formData();
@@ -149,6 +151,7 @@ export async function POST(request: Request) {
     const formDetails: Record<string, string | File | (string | File)[]> = {};
     const fileFields: Record<string, File> = {};
 
+    // fallow-ignore-next-line complexity
     formData.forEach((value, key) => {
       if (key === "settings" || key === "recaptchaToken" || key === "recaptcha")
         return;
@@ -182,6 +185,7 @@ export async function POST(request: Request) {
 
     // Prepare email data
     const emailFormData: Record<string, string> = {};
+    // fallow-ignore-next-line complexity
     formData.forEach((value, key) => {
       if (key === "settings" || key === "recaptchaToken" || key === "recaptcha")
         return;

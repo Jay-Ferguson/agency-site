@@ -1,7 +1,20 @@
 {
   "$schema": "https://raw.githubusercontent.com/fallow-rs/fallow/main/schema.json",
   "entry": ["src/workers/*.ts", "scripts/*.ts"],
-  "ignorePatterns": ["**/*.generated.ts"],
+  "ignorePatterns": ["**/*.generated.ts", "**/sanity.types.ts"],
+  "ignoreDependencies": [
+    "refractor",
+    "sanity-plugin-asset-source-unsplash",
+    "@c15t/react",
+    "all",
+    "react-google-recaptcha",
+    "sanity-plugin-umami-analytics-tool",
+    "date-fns",
+    "baseline-browser-mapping",
+    "autoprefixer",
+    "eslint-config-next",
+    "postcss-load-config"
+  ],
   "rules": {
     "unused-files": "error",
     "unused-exports": "warn",

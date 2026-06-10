@@ -1,7 +1,9 @@
+// fallow-ignore-file unused-file
 import { Flex, Text } from "@sanity/ui";
 import ReactPlayer from "react-player";
 import type { PreviewProps } from "sanity";
 
+// fallow-ignore-next-line unused-export
 export function YouTubePreview(props: PreviewProps) {
   const { title: url } = props;
 

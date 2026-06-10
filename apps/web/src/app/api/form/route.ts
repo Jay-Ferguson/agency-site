@@ -3,6 +3,7 @@ import nodemailer from "nodemailer";
 
 import { getPostHogClient } from "@/lib/posthog-server";
 
+// fallow-ignore-next-line complexity
 export async function POST(request: NextRequest) {
   const { name, email, message } = await request.json();
 

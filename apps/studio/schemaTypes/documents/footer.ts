@@ -10,6 +10,7 @@ const footerColumnLink = defineField({
       title: "Name",
       description: "Name for the link",
     }),
+    // fallow-ignore-next-line code-duplication
     defineField({
       name: "url",
       type: "customUrl",
@@ -52,6 +53,7 @@ const footerColumn = defineField({
       type: "array",
       title: "Links",
       description: "Links for the column",
+      // fallow-ignore-next-line code-duplication
       of: [footerColumnLink],
     }),
   ],

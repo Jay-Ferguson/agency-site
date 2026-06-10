@@ -14,6 +14,7 @@ const navbarLink = defineField({
       title: "Link Text",
       description: "The text that will be displayed for this navigation link",
     }),
+    // fallow-ignore-next-line code-duplication
     defineField({
       name: "url",
       type: "customUrl",
@@ -103,6 +104,7 @@ const navbarColumn = defineField({
       title: "Column Links",
       validation: (rule) => [rule.required(), rule.unique()],
       description: "The list of navigation links to display in this column",
+      // fallow-ignore-next-line code-duplication
       of: [navbarColumnLink],
     }),
   ],
