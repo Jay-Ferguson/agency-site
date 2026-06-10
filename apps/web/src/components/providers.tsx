@@ -29,9 +29,6 @@ const theme = {
 } satisfies Theme;
 
 
-
-
-
 const translations = {
   en: baseTranslations.en,
   de: baseTranslations.de,
