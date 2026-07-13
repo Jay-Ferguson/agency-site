@@ -22,20 +22,19 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@workspace/ui/components/sheet";
-import { cn } from "@workspace/ui/lib/utils";
-import { Menu } from "lucide-react";
-import dynamic from "next/dynamic";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 
-import { useIsMobile } from "@/hooks/use-is-mobile";
-import type { QueryNavbarDataResult } from "@/lib/sanity/sanity.types";
-
+import Link from "next/link";
 import { Logo } from "./logo";
+import { Menu } from "lucide-react";
 import { ModeToggle } from "./mode-toggle";
+import type { QueryNavbarDataResult } from "@/lib/sanity/sanity.types";
 import { SanityButtons } from "./sanity-buttons";
 import { SanityIcon } from "./sanity-icon";
+import { cn } from "@workspace/ui/lib/utils";
+import dynamic from "next/dynamic";
+import { useIsMobile } from "@/hooks/use-is-mobile";
+import { usePathname } from "next/navigation";
 
 interface MenuItem {
   title: string;
@@ -192,21 +191,22 @@ function NavbarColumnLink({
   >;
 }) {
   return (
-    <Link
-      aria-label={`Link to ${column.name ?? column.href}`}
-      href={column.href ?? ""}
-      target={column.openInNewTab ? "_blank" : "_self"}
-      rel={column.openInNewTab ? "noopener noreferrer" : undefined}
-    >
+   
       <NavigationMenuLink
+      asChild
         className={cn(
           navigationMenuTriggerStyle(),
           "text-muted-foreground dark:text-neutral-300",
         )}
       >
+         <Link
+      aria-label={`Link to ${column.name ?? column.href}`}
+      href={column.href ?? ""}
+      target={column.openInNewTab ? "_blank" : "_self"}
+      rel={column.openInNewTab ? "noopener noreferrer" : undefined}
+    ></Link>
         {column.name}
       </NavigationMenuLink>
-    </Link>
   );
 }
 
