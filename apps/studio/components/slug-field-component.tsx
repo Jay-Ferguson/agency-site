@@ -74,7 +74,7 @@ const FolderText = styled(Text)`
 export function PathnameFieldComponent(props: ObjectFieldProps<SlugValue>) {
   const document = useFormValue([]) as SanityDocument;
   const publishedId = getPublishedId(document?._id as string);
-  const validation = useValidationStatus(publishedId, document?._type);
+  const validation = useValidationStatus(publishedId, document?._type, true);
 
   const slugValidationError = useMemo(
     () =>
