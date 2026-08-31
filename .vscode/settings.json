@@ -1,6 +1,6 @@
 {
      "typescript.tsdk": "node_modules/typescript/lib",
      "terminal.integrated.cursorBlinking": true,
-     "workbench.colorTheme": "Dark Green Jungle",
+     "workbench.colorTheme": "Dobri Next -B02- Medium",
      "workbench.iconTheme": "dobri-simple-icons"
 }
